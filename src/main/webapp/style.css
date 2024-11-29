@@ -1,0 +1,316 @@
+body {
+    background-color: #07080b !important;
+    color: #ffbd59;
+    margin: 0;
+}
+
+/*Fondo img principal*/
+
+.tituloAdmin{
+	color: #ffbd59;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.short-img {
+    height: 400px;
+    object-fit: cover;
+    margin-top: -60px;
+}
+
+#fondo {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.img-loaded {
+    opacity: 0.5 !important;
+}
+
+/*NAVEGADOR*/
+.navbar {
+    background-color: rgba(60, 62, 68, 0.8);
+    transition: background-color 0.3s ease;
+    z-index: 5;
+}
+
+.nav-link {
+    color: #ffbd59 !important;
+}
+
+.nav-link:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 15px;
+}
+
+/*CARRUSEL*/
+.carousel-inner .row {
+    height: auto;
+    justify-content: center;
+}
+
+.carousel-inner .col {
+    flex: 0 0 calc(33.333% - 100px);
+    max-width: calc(33.333% - 10px);
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 200px;
+}
+
+.carousel-indicators {
+    position: relative;
+    bottom: -30px;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-indicators button {
+    background-color: #882d29;
+    border: none;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+}
+
+.carousel-indicators-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    height: 40px;
+}
+
+.carousel-indicators {
+    display: flex;
+}
+
+.carousel-indicators button {
+    background-color: #882d29;
+    border: none;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.carousel-indicators button.active {
+    background-color: #bd2921;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: #07080b;
+    color: #ffbd59;
+    padding: 40px 0;
+}
+
+footer .container {
+    max-width: 1140px;
+    /* Ajusta el ancho máximo */
+    margin: 0 auto;
+}
+
+footer p,
+footer ul {
+    margin-bottom: 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer a {
+    color: #ffbd59;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* PARA BARRA DE BUSCADOR DEL CLUB - RESULTADOS */
+/* Contenedor del club */
+#club {
+    border: none;
+    background-color: transparent;
+    max-width: 600px;
+}
+
+/* Título del buscador */
+#tituloBuscarClub {
+    color: #ffbd59; /* Amarillo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Sombra para visibilidad */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Input del buscador */
+#searchClub {
+    background-color: #1d1d1d; /* Fondo oscuro */
+    color: #fff;
+    border: 2px solid #fff; /* Borde blanco */
+    border-radius: 0px;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+}
+
+#searchClub:focus {
+    border-color: #FFD700; /* Borde amarillo al enfocar */
+    outline: none;
+}
+#searchClub::placeholder {
+    color: #fff; /* Color blanco */
+    opacity: 1; /* Asegura que el color sea totalmente visible */
+}
+
+#searchClub:-ms-input-placeholder { /* Para Internet Explorer */
+    color: #fff;
+}
+
+#searchClub::-ms-input-placeholder { /* Para Microsoft Edge */
+    color: #fff;
+}
+
+/* Botón del buscador */
+#btnBuscar {
+    background-color: #ffbd59; /* Amarillo suave */
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 0px;
+    transition: background-color 0.3s;
+}
+
+#btnBuscar:hover {
+    background-color: #e6ac53;
+}
+
+/* Contenedor de resultados con scroll */
+#resultadosClubsContainer {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+#resultadosClubs .list-group-item {
+    background-color: #1d1d1d; /* Gris oscuro */
+    color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+/* Modal de acción */
+#actionModal .modal-content,
+#messageModal .modal-content {
+    background-color: #f8f9fa; /* Gris claro */
+    color: #000; /* Texto en negro */
+    border-radius: 10px;
+}
+
+#actionModal .modal-header,
+#messageModal .modal-header {
+    border-bottom: 1px solid #ccc;
+}
+
+#actionModalLabel,
+#messageModalLabel {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#actionModal .btn-secondary,
+#messageModal .btn-secondary {
+    background-color: #ffbd59; /* Amarillo suave */
+    color: #000;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#actionModal .btn-secondary:hover,
+#messageModal .btn-secondary:hover {
+    background-color: #e6ac53;
+}
+
+#actionModal .btn-primary {
+    background-color: #8b0000; /* Rojo vino */
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#actionModal .btn-primary:hover {
+    background-color: #a30000;
+}
+
+/* Responsividad para el buscador */
+@media (max-width: 768px) {
+    #searchClub {
+        width: 100%;
+    }
+
+    #btnBuscar {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #searchClubForm .input-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/*BOTONES EDITAR ELIMINAR DESCRIPCION*/
+#btnEditar {
+    background-color: #ffbd59; /* Color personalizado */
+    color: #000; /* Texto negro para buen contraste */
+    border: none; /* Sin borde */
+}
+
+#btnEditar:hover {
+    background-color: #e6a54f; /* Color más oscuro al pasar el cursor */
+    color: #fff; /* Texto blanco para buen contraste */
+}
+
+#clubDescripcion.expanded {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
