@@ -97,39 +97,31 @@ function Redirigir() {
     
     if (!token) {
         alert("No se encontró un token válido. Por favor, inicia sesión.");
-        window.location.href = '/'; // Redirigir al inicio o página de login
+        window.location.href = '/'; // Redirect to login page
         return;
     }
 
     fetch('http://localhost:8099/api/inicio/dashboard', {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${token}` // Enviar el token si es necesario
+            'Authorization': `Bearer ${token}`,
         }
     })
     .then(response => {
-        if (response.ok) {
-            return response.json(); // Cambia a .json() para obtener un objeto JSON
-        } else {
-            throw new Error("Error en la redirección: " + response.statusText);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
+        return response.json();
     })
     .then(data => {
-        if (data.redirectUrl) {
-            console.log("Redirigiendo a: " + data.redirectUrl);
-            window.location.href = data.redirectUrl; // Redirige a la URL recibida del backend
-        } else {
-            console.error("No se recibió una URL de redirección.");
-            alert("Error: No se pudo determinar la redirección.");
-            window.location.href = '/'; // Redirigir al inicio si no hay URL
-        }
+        console.log("Datos recibidos:", data);
+        window.location.href = data.redirect; // Redirect to the specified view
     })
     .catch(error => {
-        console.error("Error en la redirección:", error.message);
-        alert("Error al redirigir al dashboard: " + error.message);
-        window.location.href = '/'; // Redirigir al inicio en caso de error
+        console.error("Error durante la solicitud:", error.message);
     });
 }
+
 function AltaUsuario() {
     mainContenedor.innerHTML = '';
     const imgFondo = imgFondoAltaUsuario();
