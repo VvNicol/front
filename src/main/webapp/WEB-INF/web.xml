@@ -1,19 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
-	<display-name>Motos Frontend</display-name>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/appServlet/servlet-context.xml
-		</param-value>
-	</context-param>
-	<servlet>
-		<servlet-name>appServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet
-		</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/motos_front/</url-pattern>
-	</servlet-mapping>
+    <display-name>Mi Proyecto Web</display-name>
+
+    <!-- Configuración del DispatcherServlet -->
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Mapeo de URL para el DispatcherServlet -->
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/motos_front/</url-pattern> <!-- Esto mapea la raíz de la aplicación -->
+    </servlet-mapping>
+
+    <!-- Parametrización del contexto de Spring -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+    </context-param>
 
 </web-app>

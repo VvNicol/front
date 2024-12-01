@@ -8,7 +8,6 @@ import { contenidoPrincipal } from "./principal.js";
 
 const mainContenedor = document.querySelector('#contenedor');
 
-
 function RegistroClub(){
 	mainContenedor.innerHTML = '';
 	const fondo = imgFondoRegistroClub();
@@ -66,33 +65,71 @@ function IniciarSesion() {
 }
 
 function validateToken(token) {
-    fetch('http://localhost:8099/api/inicio/validate', {
-        method: 'POST',
+	fetch('http://localhost:8099/api/inicio/validate', {
+		method: 'POST',
+		headers: {
+			'Authorization': `Bearer ${token}`
+		}
+	})
+		.then(response => response.json())  // Esperamos JSON para obtener el rol
+		.then(data => {
+			console.log('Respuesta del servidor:', data);
+			if (data.role === "ROLE_ADMIN") {
+				console.log("Sesión iniciada como ADMIN");
+				// Redirige a la página de admin
+				Redirigir();
+			} else if (data.role === "ROLE_USER") {
+				console.log("Sesión iniciada como USER");
+				Redirigir(); // Llama a la función redirigir
+			} else {
+				console.error("Rol desconocido:", data);
+				alert("Rol desconocido en la respuesta del servidor.");
+			}
+		})
+		.catch(error => {
+			console.error("Error en la validación del token:", error.message);
+			alert(error.message); // Muestra un mensaje de error al usuario
+		});
+}
+
+function Redirigir() {
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+        alert("No se encontró un token válido. Por favor, inicia sesión.");
+        window.location.href = '/'; // Redirigir al inicio o página de login
+        return;
+    }
+
+    fetch('http://localhost:8099/api/inicio/dashboard', {
+        method: 'GET',
         headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `Bearer ${token}` // Enviar el token si es necesario
         }
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.role) {
-            console.log("Rol del usuario: " + data.role);
-            // Realizar la redirección según el rol
-            if (data.role === 'ROLE_ADMIN') {
-                window.location.href = '/admin';
-            } else if (data.role === 'ROLE_USER') {
-                window.location.href = '/usuario';
-            }
+    .then(response => {
+        if (response.ok) {
+            return response.json(); // Cambia a .json() para obtener un objeto JSON
         } else {
-            console.error("Token inválido o sin rol.");
-            window.location.href = '/login'; // Si no se recibe un rol válido
+            throw new Error("Error en la redirección: " + response.statusText);
+        }
+    })
+    .then(data => {
+        if (data.redirectUrl) {
+            console.log("Redirigiendo a: " + data.redirectUrl);
+            window.location.href = data.redirectUrl; // Redirige a la URL recibida del backend
+        } else {
+            console.error("No se recibió una URL de redirección.");
+            alert("Error: No se pudo determinar la redirección.");
+            window.location.href = '/'; // Redirigir al inicio si no hay URL
         }
     })
     .catch(error => {
-        console.error("Error al validar el token: ", error);
-        window.location.href = '/login'; // Redirige al login si la validación falla
+        console.error("Error en la redirección:", error.message);
+        alert("Error al redirigir al dashboard: " + error.message);
+        window.location.href = '/'; // Redirigir al inicio en caso de error
     });
 }
-
 function AltaUsuario() {
     mainContenedor.innerHTML = '';
     const imgFondo = imgFondoAltaUsuario();
@@ -217,6 +254,7 @@ function Principal() {
     mainContenedor.appendChild(contenido);
 }
 
+window.Redirigir= Redirigir;
 window.AltaClub = AltaClub;
 window.AltaUsuario = AltaUsuario;
 window.IniciarSesion = IniciarSesion;
