@@ -1,9 +1,9 @@
 // main.js
-
 import { fondoIniciarSesion, formularioInicioSesion } from "./iniciarSesion.js";
 import { formularioAltaClub, imgFondoAltaClub} from "./clubAlta.js";
 import { formularioAltaUsuario, imgFondoAltaUsuario} from "./usuarioAlta.js";
 import { formularioRegistroClub, imgFondoRegistroClub } from "./clubRegistro.js"
+import { validateToken} from "../utils/autentificacion.js"
 import { contenidoPrincipal } from "./principal.js"; 
 
 const mainContenedor = document.querySelector('#contenedor');
@@ -16,7 +16,6 @@ function RegistroClub(){
 	mainContenedor.appendChild(fondo);
 	mainContenedor.appendChild(formulario);
 }
-
 
 function IniciarSesion() {
 	mainContenedor.innerHTML = '';
@@ -64,63 +63,7 @@ function IniciarSesion() {
 	});
 }
 
-function validateToken(token) {
-	fetch('http://localhost:8099/api/inicio/validate', {
-		method: 'POST',
-		headers: {
-			'Authorization': `Bearer ${token}`
-		}
-	})
-		.then(response => response.json())  // Esperamos JSON para obtener el rol
-		.then(data => {
-			console.log('Respuesta del servidor:', data);
-			if (data.role === "ROLE_ADMIN") {
-				console.log("Sesión iniciada como ADMIN");
-				// Redirige a la página de admin
-				Redirigir();
-			} else if (data.role === "ROLE_USER") {
-				console.log("Sesión iniciada como USER");
-				Redirigir(); // Llama a la función redirigir
-			} else {
-				console.error("Rol desconocido:", data);
-				alert("Rol desconocido en la respuesta del servidor.");
-			}
-		})
-		.catch(error => {
-			console.error("Error en la validación del token:", error.message);
-			alert(error.message); // Muestra un mensaje de error al usuario
-		});
-}
 
-function Redirigir() {
-    const token = localStorage.getItem('token');
-    
-    if (!token) {
-        alert("No se encontró un token válido. Por favor, inicia sesión.");
-        window.location.href = '/'; // Redirect to login page
-        return;
-    }
-
-    fetch('http://localhost:8099/api/inicio/dashboard', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`,
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log("Datos recibidos:", data);
-        window.location.href = data.redirect; // Redirect to the specified view
-    })
-    .catch(error => {
-        console.error("Error durante la solicitud:", error.message);
-    });
-}
 
 function AltaUsuario() {
     mainContenedor.innerHTML = '';
@@ -239,14 +182,14 @@ function AltaClub() {
     });
 }
 
-
 function Principal() {
     mainContenedor.innerHTML = '';
     const contenido = contenidoPrincipal();
     mainContenedor.appendChild(contenido);
 }
 
-window.Redirigir= Redirigir;
+
+
 window.AltaClub = AltaClub;
 window.AltaUsuario = AltaUsuario;
 window.IniciarSesion = IniciarSesion;

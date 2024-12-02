@@ -1,63 +1,65 @@
 //adminMain.js
+import { checkPageAndValidate } from "../utils/autentificacion.js"
+
 /*
 import { clubBuscador, clubImgFondoBuscador } from "./clubBuscador.js"
 import { toggleDescripcion } from "./utils.js"
-
+/*
 const mainContenedor = document.querySelector('#contenedor');
 
 function BuscadorClub() {
-    mainContenedor.innerHTML = '';
-    const imgFondo = clubImgFondoBuscador();
-    const contenido = clubBuscador();
+	mainContenedor.innerHTML = '';
+	const imgFondo = clubImgFondoBuscador();
+	const contenido = clubBuscador();
 
-    mainContenedor.append(imgFondo, contenido);
+	mainContenedor.append(imgFondo, contenido);
 
-    const form = contenido.querySelector('#searchClubForm');
-    const inputBusqueda = contenido.querySelector('#searchClub');
-    const resultados = contenido.querySelector('#resultadosClubs');
+	const form = contenido.querySelector('#searchClubForm');
+	const inputBusqueda = contenido.querySelector('#searchClub');
+	const resultados = contenido.querySelector('#resultadosClubs');
 /*
 	async function cargarClubs(criterio = '') {
-	    try {
-	        const response = await fetch('/admin/buscarClubs', {
-	            method: 'POST',
-	            headers: { 'Content-Type': 'application/json' },
-	            body: JSON.stringify({ criterio }),
-	        });
+		try {
+			const response = await fetch('/admin/buscarClubs', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ criterio }),
+			});
 
-	        if (!response.ok) throw new Error('Error en la solicitud');
-	        const clubs = await response.json();
+			if (!response.ok) throw new Error('Error en la solicitud');
+			const clubs = await response.json();
 
-	        const resultados = document.querySelector('#resultadosClubs'); // Asegúrate de que este selector sea correcto
-	        resultados.innerHTML = ''; // Limpiar resultados previos
+			const resultados = document.querySelector('#resultadosClubs'); // Asegúrate de que este selector sea correcto
+			resultados.innerHTML = ''; // Limpiar resultados previos
 
-	        if (clubs.length > 0) {
-	            clubs.forEach(club => {
-	                const li = resultados(club);  // Usar la función importada
-	                resultados.appendChild(li);
-	            });
-	        } else {
-	            resultados.innerHTML = `<li class="list-group-item text-light bg-danger">No se encontraron resultados.</li>`;
-	        }
-	    } catch (error) {
-	        console.error(error);
-	        resultados.innerHTML = `<li class="list-group-item text-light bg-danger">Error al cargar datos.</li>`;
-	    }
+			if (clubs.length > 0) {
+				clubs.forEach(club => {
+					const li = resultados(club);  // Usar la función importada
+					resultados.appendChild(li);
+				});
+			} else {
+				resultados.innerHTML = `<li class="list-group-item text-light bg-danger">No se encontraron resultados.</li>`;
+			}
+		} catch (error) {
+			console.error(error);
+			resultados.innerHTML = `<li class="list-group-item text-light bg-danger">Error al cargar datos.</li>`;
+		}
 	}
-    // Cargar todos los datos al iniciar
+	// Cargar todos los datos al iniciar
 /*    cargarClubs();
 
-    // Manejar el evento de búsqueda en tiempo real
-    inputBusqueda.addEventListener('input', (event) => {
-        const criterio = event.target.value.trim(); // Obtener el valor del input
-        cargarClubs(criterio); // Llamar a la función con el criterio actualizado
-    });
+	// Manejar el evento de búsqueda en tiempo real
+	inputBusqueda.addEventListener('input', (event) => {
+		const criterio = event.target.value.trim(); // Obtener el valor del input
+		cargarClubs(criterio); // Llamar a la función con el criterio actualizado
+	});
 
-    // Manejar el evento submit del formulario
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevenir recarga de página
-        const criterio = inputBusqueda.value.trim();
-        cargarClubs(criterio); // Llamar a la función con el criterio de búsqueda
-    });
+	// Manejar el evento submit del formulario
+	form.addEventListener('submit', (event) => {
+		event.preventDefault(); // Prevenir recarga de página
+		const criterio = inputBusqueda.value.trim();
+		cargarClubs(criterio); // Llamar a la función con el criterio de búsqueda
+	});
 }
 
 
@@ -172,10 +174,16 @@ function MostrarAlerta(mensaje, tipo = 'success') {
 		alerta.classList.remove('show');  // Hacer que la alerta se desvanezca
 		alertContainer.removeChild(alerta);  // Eliminar el elemento de la alerta
 	}, 5000);
-}
-
+}*/
+/*
 
 window.MostrarAlerta = MostrarAlerta;
 window.BuscadorClub = BuscadorClub;
-window.EliminarClub = EliminarClub;
-*/
+window.EliminarClub = EliminarClub;*/
+
+// Variable global para verificar si el token ya fue validado
+
+
+checkPageAndValidate();
+
+window.checkPageAndValidate = checkPageAndValidate;
