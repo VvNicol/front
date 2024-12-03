@@ -69,47 +69,6 @@ export function clubBuscador() {
 	return div;
 }
 
-export function resultados(club) {
-    const li = document.createElement('li');
-    li.classList.add('list-group-item', 'bg-dark', 'text-light', 'border-light');
-
-    li.innerHTML = `
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-            <div class="mb-2 mb-md-0">
-                <h5 class="mb-1">Club: <span>${club.nombre}</span></h5>
-                <p class="mb-0">Correo: <span>${club.correo}</span></p>
-                <p class="mb-0">
-                    Descripción: 
-                    <span class="text-truncate d-inline-block" style="max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        ${club.descripcion}
-                    </span>
-                    <button class="btn-expandir-descripcion btn btn-link p-0 text-decoration-none">
-                        Ver más
-                    </button>
-                </p>
-            </div>
-            <div class="d-flex flex-column flex-sm-row">
-                <button class="btn-eliminar btn btn-danger btn-sm mb-2 mb-sm-0 me-0 me-sm-2" data-correo="${club.correo}">
-                    Eliminar
-                </button>
-                <button class="btn-editar btn btn-custom-warning btn-sm" data-id="${club.id}">
-                    Editar
-                </button>
-            </div>
-        </div>
-    `;
-
-    li.querySelector('.btn-expandir-descripcion').addEventListener('click', () => {
-        toggleDescripcion(li.querySelector('.btn-expandir-descripcion'));
-    });
-
-    li.querySelector('.btn-eliminar').addEventListener('click', () => {
-        // Aquí puedes implementar la lógica de eliminación
-    });
-
-    return li;
-}
-
 
 export function clubImgFondoBuscador() {
 	const divContenedor = document.createElement('div');
@@ -132,7 +91,7 @@ export function clubImgFondoBuscador() {
 function imgFondo() {
 	const img = document.createElement('img');
 	img.id = 'fondo';
-	img.src = "./img/harley-davidson.jpg";
+	img.src = "../img/harley-davidson.jpg";
 	img.alt = "Foto sobre un motor de moto en blanco y negro";
 	img.classList.add('img-fluid');
 	img.style.filter = 'blur(2px)';
