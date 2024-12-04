@@ -3,10 +3,20 @@ import { fondoIniciarSesion, formularioInicioSesion } from "./iniciarSesion.js";
 import { formularioAltaClub, imgFondoAltaClub} from "./clubAlta.js";
 import { formularioAltaUsuario, imgFondoAltaUsuario} from "./usuarioAlta.js";
 import { formularioRegistroClub, imgFondoRegistroClub } from "./clubRegistro.js"
+import { imgFondoRegistro, registro} from "./registro.js"
 import { validateToken} from "../utils/autentificacion.js"
 import { contenidoPrincipal } from "./principal.js"; 
 
 const mainContenedor = document.querySelector('#contenedor');
+
+function Registro(){
+	mainContenedor.innerHTML = '';
+	const fondo = imgFondoRegistro();
+	const formulario = registro();
+
+	mainContenedor.appendChild(fondo);
+	mainContenedor.appendChild(formulario);
+}
 
 function RegistroClub(){
 	mainContenedor.innerHTML = '';
@@ -195,3 +205,4 @@ window.AltaUsuario = AltaUsuario;
 window.IniciarSesion = IniciarSesion;
 window.Principal = Principal;
 window.RegistroClub = RegistroClub;
+window.Registro = Registro;

@@ -24,31 +24,49 @@ export function registro() {
 
 	const formulario = `
 
-	<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-		<div class="mb-2 mb-md-0">
-			<h5 class="mb-1">
-				Club: <span>${club.nombre}</span>
-			</h5>
-			<p class="mb-0">
-				Correo: <span>${club.correo}</span>
-			</p>
-			<p class="mb-0">
-				Descripción: <span class="text-truncate d-inline-block"
-					style="max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-					${club.descripcion} </span>
-				<button
-					class="btn-expandir-descripcion btn btn-link p-0 text-decoration-none">
-					Ver más</button>
-			</p>
-		</div>
-		<div class="d-flex flex-column flex-sm-row">
-			<button
-				class="btn-eliminar btn btn-danger btn-sm mb-2 mb-sm-0 me-0 me-sm-2"
-				data-correo="${club.correo}">Eliminar</button>
-			<button class="btn-editar btn btn-custom-warning btn-sm"
-				data-id="${club.id}">Editar</button>
-		</div>
-	</div>
+	<main id="contenedor">
+			<div class="container-fluid p-0">
+				<div class="col">
+					<img id="fondo" src="./img/harley-davidson.jpg"
+						alt="Foto sobre un motor de moto en blanco y negro"
+						class="img-fluid img-loaded">
+				</div>
+			</div>
+
+			<div class="row">
+				<div
+					class="col-lg-6 container d-flex justify-content-center align-items-center vh-100">
+					<div class="card bg-dark text-light shadow-lg p-4"
+						style="width: 600px; background-color: rgba(0, 0, 0, 0.7); border-radius: 10px;">
+						<div class="card-body">
+							<div class="col-12">
+								<img src="./img/biker.jpg" class="img-fluid" alt="Imagen 1">
+							</div>
+							<button type="submit" class="btn w-100 mt-3"
+								style="background-color: #ffbd59; color: black; font-weight: bold;"
+								onclick="AltaUsuario()">Registrar usuario</button>
+						</div>
+					</div>
+
+				</div>
+				<div
+					class="col-lg-6 container d-flex justify-content-center align-items-center vh-100">
+					<div class="card bg-dark text-light shadow-lg p-4"
+						style="width: 600px; background-color: rgba(0, 0, 0, 0.7); border-radius: 10px;">
+						<div class="card-body">
+							<div class="col-12">
+								<img src="./img/Captura de pantalla 2024-10-03 133039.png"
+									class="img-fluid" alt="Imagen 1">
+							</div>
+							<button type="submit" class="btn w-100 mt-3"
+								style="background-color: #ffbd59; color: black; font-weight: bold;"
+								onclick="AltaClub()">Registrar club</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</main>
 
     `;
 
