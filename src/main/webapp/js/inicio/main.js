@@ -8,7 +8,7 @@ import { validateToken} from "../utils/autentificacion.js"
 import { contenidoPrincipal } from "./principal.js"; 
 
 const mainContenedor = document.querySelector('#contenedor');
-
+validateToken();
 //Funcion que hace la llamada a las funciones necesarias para que se pueda llevar a cabo la parte de registro
 function Registro(){
 	mainContenedor.innerHTML = '';
