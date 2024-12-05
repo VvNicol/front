@@ -1,5 +1,6 @@
+//Funcion de eliminar usuario
 function EliminarUsuario() {
-
+	
 	mainContenedor.innerHTML = '';
 	const imgFondo = imgFondoEliminarUsuario();
 	const formulario = eliminarFormularioUsuario();

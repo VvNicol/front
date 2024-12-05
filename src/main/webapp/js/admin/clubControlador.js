@@ -1,5 +1,6 @@
 import { toggleDescripcion, MostrarAlerta } from "./utilidad.js";
 
+//Envia el criterio o lo typeado en la barra de busqueda y lo muestra
 export function cargarClubs(criterio = '', resultados) {
 
 	fetch('http://localhost:8099/admin/buscarClubs', {
@@ -79,7 +80,7 @@ export function cargarClubs(criterio = '', resultados) {
 			resultados.innerHTML = `<li class="list-group-item text-light bg-danger">Hubo un error al realizar la búsqueda.</li>`;
 		});
 }
-
+//Elimina un club
 function EliminarClub(correo, nombre, actionModal) {
 	const actionModalTitle = document.getElementById('actionModalLabel');
 	actionModalTitle.textContent = "¿Estas seguro?";

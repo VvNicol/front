@@ -1,3 +1,4 @@
+//Vista de la barra de buqueda de usuario
 export function buscadorUsuario() {
     const div = document.createElement('div');
     div.classList.add('container', 'd-flex', 'justify-content-center', 'align-items-center', 'vh-100');
@@ -21,6 +22,7 @@ export function buscadorUsuario() {
 
     return div;
 }
+//Imagen de fondo
 export function imgFondoBuscadorUsuario() {
     const divContenedor = document.createElement('div');
     divContenedor.classList.add('container-fluid', 'p-0');

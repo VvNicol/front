@@ -39,7 +39,7 @@ function Redirigir() {
 
     if (!token) {
         alert("No se encontró un token válido. Por favor, inicia sesión.");
-        window.location.href = '/'; // Redirige al inicio de sesión
+        window.location.href = '/motos_front/'; // Redirige al inicio de sesión
         return;
     }
 
@@ -67,7 +67,7 @@ function Redirigir() {
     .catch(error => {
         console.error("Error durante la solicitud:", error.message);
         alert("Error durante la solicitud al dashboard.");
-        window.location.href = '/'; // Redirige al inicio de sesión en caso de error
+        window.location.href = '/motos_front/'; // Redirige al inicio de sesión en caso de error
     });
 }
 
@@ -92,7 +92,7 @@ export function checkPageAndValidate() {
         const token = localStorage.getItem('token');
         if (!token) {
             console.warn('No se encontró un token, redirigiendo a inicio de sesión');
-            window.location.href = '../views/noAutorizado.html'; // Redirige a página de acceso no autorizado
+            window.location.href = '../views/403.html'; // Redirige a página de acceso no autorizado
         } else {
             validateToken(token); // Valida el token
             localStorage.setItem('isValidated', 'true'); // Marca que la validación fue hecha

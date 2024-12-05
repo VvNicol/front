@@ -1,3 +1,4 @@
+//Vista de la opcion club, barra de busqueda
 export function clubBuscador() {
 	const div = document.createElement('main');
 	div.classList.add('container', 'position-relative', 'vh-100', 'align-items-center');
@@ -69,7 +70,7 @@ export function clubBuscador() {
 	return div;
 }
 
-
+//Imagen de fondo 
 export function clubImgFondoBuscador() {
 	const divContenedor = document.createElement('div');
 	divContenedor.classList.add('container-fluid', 'p-0');

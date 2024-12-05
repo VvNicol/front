@@ -4,16 +4,19 @@ import { clubBuscador, clubImgFondoBuscador } from "./clubVista.js"
 import { cargarClubs } from "./clubControlador.js"
 import { MostrarAlerta } from "./utilidad.js";
 
-checkPageAndValidate();
-
 const mainContenedor = document.querySelector('#contenedor');
 
+//Busca por el token si tiene permitido acceder a la url 
+checkPageAndValidate();
+
+//Mensaje de la opcion usuario indicando que esta en desarrollo
 function BuscadorUsuario() {
 	const btnUsuario = document.querySelector('#btnUsuario');
 	MostrarAlerta('Función: buscador de usuario en desarrollo ☺', 'info');
 	console.log(btnUsuario);
 }
 
+//Funcion de la barra de busqueda de club
 function BuscadorClub() {
     mainContenedor.innerHTML = '';
     const imgFondo = clubImgFondoBuscador();

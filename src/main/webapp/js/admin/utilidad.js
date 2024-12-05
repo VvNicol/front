@@ -1,3 +1,4 @@
+//Desplegar el ver mas... de los resultados de busqueda
 export function toggleDescripcion(button) {
 	const descripcion = button.previousElementSibling; // El span que contiene la descripción
 	const isExpanded = descripcion.classList.contains('expanded');
@@ -16,7 +17,7 @@ export function toggleDescripcion(button) {
 		button.textContent = 'Ver menos';
 	}
 }
-
+//Muestrar alertas 
 export function MostrarAlerta(mensaje, tipo = 'success') {
 	const alertContainer = document.getElementById('alertContainer');
 
