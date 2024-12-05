@@ -23,7 +23,7 @@ export function formularioInicioSesion() {
     div.innerHTML = `
         <div class="card bg-dark text-light" style="width: 400px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);">
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">Iniciar Sesión club</h2>
+                <h2 class="card-title text-center mb-4">Iniciar Sesión</h2>
                 <form id="loginForm">
                     <div class="mb-3">
                         <label for="username" class="form-label">Correo: </label>
