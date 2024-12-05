@@ -2,10 +2,17 @@
 import { checkPageAndValidate } from "../utils/autentificacion.js"
 import { clubBuscador, clubImgFondoBuscador } from "./clubVista.js"
 import { cargarClubs } from "./clubControlador.js"
+import { MostrarAlerta } from "./utilidad.js";
 
 checkPageAndValidate();
 
 const mainContenedor = document.querySelector('#contenedor');
+
+function BuscadorUsuario() {
+	const btnUsuario = document.querySelector('#btnUsuario');
+	MostrarAlerta('Función: buscador de usuario en desarrollo ☺', 'info');
+	console.log(btnUsuario);
+}
 
 function BuscadorClub() {
     mainContenedor.innerHTML = '';
@@ -34,3 +41,4 @@ function BuscadorClub() {
 
 window.checkPageAndValidate = checkPageAndValidate;
 window.BuscadorClub = BuscadorClub;
+window.BuscadorUsuario = BuscadorUsuario;	
