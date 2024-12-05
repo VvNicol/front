@@ -1,3 +1,4 @@
+//Funcion que muestra la vista de la pagina principal de la web
 export function contenidoPrincipal() {
     const elemento = document.createElement('div');
 

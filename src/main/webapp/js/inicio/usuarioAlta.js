@@ -1,5 +1,4 @@
-//altaUsuario.js
-
+//Funcion que muestra la imagen de fondo de la opcion de alta de usuario con las respectivas propiedades que se le aplican
 export function imgFondoAltaUsuario() {
 	const divContenedor = document.createElement('div');
 	divContenedor.classList.add('container-fluid', 'p-0');
@@ -18,6 +17,7 @@ export function imgFondoAltaUsuario() {
 	return divContenedor;
 }
 
+//Funcion que muestra el formulario para registrar un nuevo usuario
 export function formularioAltaUsuario() {
 	const div = document.createElement('div');
 	div.classList.add('container', 'd-flex', 'justify-content-center', 'align-items-center', 'vh-100');
@@ -84,7 +84,7 @@ export function formularioAltaUsuario() {
 	return div;
 }
 
-
+//Funcion que muestra la imagen de fondo de la web con las respectivas propiedades que se le aplican
 function imgFondo() {
 	const img = document.createElement('img');
 	img.id = 'fondo';

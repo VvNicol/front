@@ -1,5 +1,4 @@
-// altaClub.js
-
+//Funcion que muestra la imagen de fondo de la opcion de alta de club con las respectivas propiedades que se le aplican
 export function imgFondoAltaClub() {
     const divContenedor = document.createElement('div');
     divContenedor.classList.add('container-fluid', 'p-0');
@@ -18,6 +17,7 @@ export function imgFondoAltaClub() {
     return divContenedor;
 }
 
+//Funcion que muestra el formulario para registrar un nuevo club
 export function formularioAltaClub() {
     const div = document.createElement('div');
     div.classList.add('container', 'd-flex', 'justify-content-center', 'align-items-center', 'vh-100');
@@ -67,7 +67,7 @@ export function formularioAltaClub() {
     return div;
 }
 
-
+//Funcion que muestra la imagen de fondo de la web con las respectivas propiedades que se le aplican
 function imgFondo() {
     const img = document.createElement('img');
     img.id = 'fondo';

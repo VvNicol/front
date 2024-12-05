@@ -1,4 +1,4 @@
-// iniciarSesion.js
+//Funcion que muestra la imagen de fondo de la opcion de iniciar sesion con las respectivas propiedades que se le aplican
 export function fondoIniciarSesion() {
     const divContenedor = document.createElement('div');
     divContenedor.classList.add('container-fluid', 'p-0');
@@ -17,6 +17,7 @@ export function fondoIniciarSesion() {
     return divContenedor;
 }
 
+//Funcion que muestra el formulario para iniciar sesion
 export function formularioInicioSesion() {
     const div = document.createElement('div');
     div.classList.add('container', 'd-flex', 'justify-content-center', 'align-items-center', 'vh-100');
@@ -42,7 +43,7 @@ export function formularioInicioSesion() {
     return div;
 }
 
-
+//Funcion que muestra la imagen de fondo de la web con las respectivas propiedades que se le aplicans
 function imgFondo() {
     const img = document.createElement('img');
     img.id = 'fondo';
