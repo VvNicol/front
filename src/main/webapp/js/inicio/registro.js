@@ -1,3 +1,4 @@
+//Funcion que muestra la imagen de fondo de la opcion de registro con las respectivas propiedades que se le aplican
 export function imgFondoRegistro() {
 	const divContenedor = document.createElement('div');
 	divContenedor.classList.add('container-fluid', 'p-0');
@@ -16,6 +17,7 @@ export function imgFondoRegistro() {
 	return divContenedor;
 }
 
+//Funcion que muestra las dos opciones que puede elegir el usuario para el registro (Registrar usuario o registrar club)
 export function registro() {
 	const div = document.createElement('div');
 	div.classList.add('container', 'd-flex', 'justify-content-center', 'align-items-center', 'vh-100');
@@ -52,7 +54,7 @@ export function registro() {
 	return div;
 }
 
-
+//Funcion que muestra la imagen de fondo de la web con las respectivas propiedades que se le aplican
 function imgFondo() {
 	const img = document.createElement('img');
 	img.id = 'fondo';

@@ -2,13 +2,14 @@
 import { fondoIniciarSesion, formularioInicioSesion } from "./iniciarSesion.js";
 import { formularioAltaClub, imgFondoAltaClub} from "./clubAlta.js";
 import { formularioAltaUsuario, imgFondoAltaUsuario} from "./usuarioAlta.js";
-import { formularioRegistroClub, imgFondoRegistroClub } from "./clubRegistro.js"
 import { registro, imgFondoRegistro } from "./registro.js"
+import { formularioRegistroClub, imgFondoRegistroClub } from "./clubRegistro.js"
 import { validateToken} from "../utils/autentificacion.js"
 import { contenidoPrincipal } from "./principal.js"; 
 
 const mainContenedor = document.querySelector('#contenedor');
 
+//Funcion que hace la llamada a las funciones necesarias para que se pueda llevar a cabo la parte de registro
 function Registro(){
 	mainContenedor.innerHTML = '';
 	const fondo = imgFondoRegistro();
@@ -18,6 +19,7 @@ function Registro(){
 	mainContenedor.appendChild(formulario);
 }
 
+//Funcion que hace la llamada a las funciones necesarias para que se pueda llevar a cabo la parte de registro de club
 function RegistroClub(){
 	mainContenedor.innerHTML = '';
 	const fondo = imgFondoRegistroClub();
@@ -27,6 +29,7 @@ function RegistroClub(){
 	mainContenedor.appendChild(formulario);
 }
 
+//Funcion que hace la llamada a las funciones necesarias para que se pueda llevar a cabo los inicios de sesion en la web
 function IniciarSesion() {
 	mainContenedor.innerHTML = '';
 	const fondo = fondoIniciarSesion();
@@ -41,6 +44,7 @@ function IniciarSesion() {
 	loginForm.addEventListener('submit', function(event) {
 		event.preventDefault();
 
+		//Variables con los valores del nombre de usuario y la contraseña
 		const username = document.getElementById('username').value;
 		const password = document.getElementById('password').value;
 
@@ -73,8 +77,7 @@ function IniciarSesion() {
 	});
 }
 
-
-
+//Funcion que hace la llamada a las funciones necesarias para que se pueda llevar a cabo la la alta de los nuevos usuarios
 function AltaUsuario() {
     mainContenedor.innerHTML = '';
     const imgFondo = imgFondoAltaUsuario();
@@ -88,6 +91,7 @@ function AltaUsuario() {
     registrationForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
+		//Variables con los valores necesarios para proceder al alta del usuario
         const nombre = document.getElementById('nombre').value;
         const apellidos = document.getElementById('apellidos').value;
         const username = document.getElementById('username').value;
@@ -97,6 +101,7 @@ function AltaUsuario() {
 		const contrasenia = document.getElementById('contrasenia').value;
 		const confirmPassword = document.getElementById('confirmPassword').value;
 
+		//Condicion que controla que las contraseñas introducidas coincidan 
         if (contrasenia !== confirmPassword) {
             alert('Las contraseñas no coinciden');
             return;
@@ -135,7 +140,7 @@ function AltaUsuario() {
     });
 }
 
-
+//Funcion que hace la llamada a las funciones necesarias para que se pueda llevar a cabo la la alta de los nuevos clubes
 function AltaClub() {
     mainContenedor.innerHTML = '';
     const imgFondo = imgFondoAltaClub();
@@ -149,12 +154,14 @@ function AltaClub() {
     registrationForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
+		//Variables con los valores necesarios para proceder al alta del club
         const nombre = document.getElementById('nombre').value;
       	const correo=document.getElementById('correo').value;
 		const descripcion=document.getElementById('descripcion').value;
         const contrasenia = document.getElementById('contrasenia').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
 
+		//Condicion que controla que las contraseñas introducidas coincidan 
         if (contrasenia !== confirmPassword) {
             alert('Las contraseñas no coinciden');
             return;
@@ -190,6 +197,7 @@ function AltaClub() {
     });
 }
 
+//Funcion que redirige a la pagina principal de nuestra web
 function Principal() {
     mainContenedor.innerHTML = '';
     const contenido = contenidoPrincipal();
