@@ -6,6 +6,18 @@ body {
 
 /*Fondo img principal*/
 
+.numError{
+	color:white;
+	text-align:center;
+	font-size:50px;
+}
+
+.textoError{
+	color:white;
+	text-align:center;
+	font-size:25px;
+}
+
 .tituloAdmin{
 	color: #ffbd59;
 }

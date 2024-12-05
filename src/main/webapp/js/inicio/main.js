@@ -3,10 +3,20 @@ import { fondoIniciarSesion, formularioInicioSesion } from "./iniciarSesion.js";
 import { formularioAltaClub, imgFondoAltaClub} from "./clubAlta.js";
 import { formularioAltaUsuario, imgFondoAltaUsuario} from "./usuarioAlta.js";
 import { formularioRegistroClub, imgFondoRegistroClub } from "./clubRegistro.js"
+import { registro, imgFondoRegistro } from "./registro.js"
 import { validateToken} from "../utils/autentificacion.js"
 import { contenidoPrincipal } from "./principal.js"; 
 
 const mainContenedor = document.querySelector('#contenedor');
+
+function Registro(){
+	mainContenedor.innerHTML = '';
+	const fondo = imgFondoRegistro();
+	const formulario = registro();
+	
+	mainContenedor.appendChild(fondo);
+	mainContenedor.appendChild(formulario);
+}
 
 function RegistroClub(){
 	mainContenedor.innerHTML = '';
@@ -112,11 +122,10 @@ function AltaUsuario() {
         .then(response => response.text())
         .then(result => {
             if (result.id) { // Suponiendo que el ID se genera automáticamente por el servidor
-                alert('Registro exitoso');
-				
-                 // Cambia a la vista de inicio de sesión
-            } else {
                 alert('Error en el registro: ' + result.message);
+            } else {
+				alert('Registro exitoso');
+				window.location.href = '/motos_front/views/usuario.html'; 
             }
         })
         .catch(error => {
@@ -169,10 +178,9 @@ function AltaClub() {
         .then(response => response.text())
         .then(result => {
             if (result.id) { // Suponiendo que el ID se genera automáticamente por el servidor
-                alert('Registro exitoso');
-                 // Cambia a la vista de inicio de sesión
+                 alert('Error en el registro: ' + result.message);
             } else {
-                alert('Error en el registro: ' + result.message);
+				alert('Registro exitoso');
             }
         })
         .catch(error => {
@@ -195,3 +203,4 @@ window.AltaUsuario = AltaUsuario;
 window.IniciarSesion = IniciarSesion;
 window.Principal = Principal;
 window.RegistroClub = RegistroClub;
+window.Registro = Registro;

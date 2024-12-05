@@ -1,7 +1,6 @@
 // authentication.js
 export function validateToken(token) {
 
-	
     fetch('http://localhost:8099/api/inicio/validate', {
         method: 'POST',
         headers: {
