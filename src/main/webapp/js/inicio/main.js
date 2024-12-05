@@ -3,11 +3,7 @@ import { fondoIniciarSesion, formularioInicioSesion } from "./iniciarSesion.js";
 import { formularioAltaClub, imgFondoAltaClub} from "./clubAlta.js";
 import { formularioAltaUsuario, imgFondoAltaUsuario} from "./usuarioAlta.js";
 import { formularioRegistroClub, imgFondoRegistroClub } from "./clubRegistro.js"
-
 import { registro, imgFondoRegistro } from "./registro.js"
-
-import { imgFondoRegistro, registro} from "./registro.js"
-
 import { validateToken} from "../utils/autentificacion.js"
 import { contenidoPrincipal } from "./principal.js"; 
 
@@ -17,7 +13,7 @@ function Registro(){
 	mainContenedor.innerHTML = '';
 	const fondo = imgFondoRegistro();
 	const formulario = registro();
-
+	
 	mainContenedor.appendChild(fondo);
 	mainContenedor.appendChild(formulario);
 }
